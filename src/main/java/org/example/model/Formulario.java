@@ -25,8 +25,8 @@ public class Formulario {
     @Size(min = 10, max = 11, message = "Telefone deve ter 10 ou 11 dígitos")
     private String telefone;
 
-    @Enumerated(EnumType.STRING)
-    private TipoDeServico tipoDeServico; //mostra o nome ao invés do índice
+    @Enumerated(EnumType.STRING)//mostra o nome ao invés do índice
+    private TipoDeServico tipoDeServico;
 
     @Size(max = 500, message = "Não pode exceder 500 caracteres")
     private String mensagem; // (campo texto, 3 linhas) – "Descreva sua ideia ou necessidade"
