@@ -6,22 +6,17 @@
 http://xmlns.jcp.org/xml/ns/persistence "
              version="2.2">
 
-    <persistence-unit name="mariadbPU" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="landingPage" transaction-type="RESOURCE_LOCAL">
         <!-- Provedor JPA (Hibernate) -->
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <properties>
             <!-- Configurações do MariaDB -->
             <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
-<!--            <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3307/landingPage"/>-->
-            <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:330/landingPage"/>
-<!--            <property name="javax.persistence.jdbc.user" value="root"/>-->
-            <property name="javax.persistence.jdbc.user" value="123456789"/>
+<!--        <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3307/landingPage"/>-->
+            <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3307/landingPage"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="Spalla2026@"/>
-
-            <!-- Dialeto do Hibernate para MariaDB (ou MySQL) -->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect"/>
-            <!-- Alternativa: org.hibernate.dialect.MariaDB106Dialect para versão 10.6+ -->
 
             <!-- Geração do esquema -->
             <property name="hibernate.hbm2ddl.auto" value="update"/>
