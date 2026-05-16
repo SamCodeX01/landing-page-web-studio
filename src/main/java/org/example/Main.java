@@ -24,7 +24,7 @@ public class Main {
 
         //Buscar formulario
 
-
+        formularioDao.listarTodos(formulario);
 
     }
 }
