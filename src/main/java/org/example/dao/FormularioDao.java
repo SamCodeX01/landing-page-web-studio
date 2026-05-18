@@ -13,7 +13,7 @@ public class FormularioDao {
     public void salvar(Formulario formulario){
         EntityManager em = JPAUtil.getEntityManager();// O gerenciador de entidades esta recebendo getEntityManager() através da classe JPAUtil, responsável por criar e retornar a conexão pronta para uso.
         try{
-            em.getTransaction().begin();
+            em.getTransaction().begin();//inicia uma transação de banco de dados.
             em.persist(formulario);
             em.getTransaction().commit(); //O método commit() significa "confirmar" ou "gravar definitivamente".Ele serve para avisar ao banco de dados que todas as operações da transação atual foram executadas com sucesso e que elas já podem ser salvas permanentemente no disco rígido.
         }
@@ -30,7 +30,7 @@ public class FormularioDao {
         EntityManager em = JPAUtil.getEntityManager();// O gerenciador de entidades esta recebendo getEntityManager() através da classe JPAUtil, responsável por criar e retornar a conexão pronta para uso.
 
         try{
-            em.getTransaction().begin();
+            em.getTransaction().begin();//inicia uma transação de banco de dados.
             em.merge(formulario); //O merge serve para atualizar ou sincronizar um objeto com o banco de dados.
             em.getTransaction().commit();//O método commit() significa "confirmar" ou "gravar definitivamente".Ele serve para avisar ao banco de dados que todas as operações da transação atual foram executadas com sucesso e que elas já podem ser salvas permanentemente no disco rígido.
         }finally {
@@ -38,13 +38,12 @@ public class FormularioDao {
         }
     }
 
-    public List<Formulario> listarTodos(Formulario formulario){
+    public List<Formulario> listarTodos(){
         EntityManager em = JPAUtil.getEntityManager(); // O gerenciador de entidades esta recebendo getEntityManager() através da classe JPAUtil, responsável por criar e retornar a conexão pronta para uso.
 
         try{
-        TypedQuery<Formulario> formularioTypedQuery = em.createQuery(
-                "select f from Formulario f", Formulario.class);
-                return formularioTypedQuery.getResultList();
+        TypedQuery<Formulario> query = em.createQuery("select f from Formulario f", Formulario.class);
+                return query.getResultList();
         } finally {
             em.close();
         }
@@ -66,7 +65,5 @@ public class FormularioDao {
             em.close();
         }
     }
-
-
 
 }
