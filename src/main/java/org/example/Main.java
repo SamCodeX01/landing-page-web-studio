@@ -12,6 +12,7 @@ public class Main {
         System.out.println("Hello, World!");
         Scanner scanner = new Scanner(System.in);
         FormularioDao formularioDao = new FormularioDao();
+        Formulario formulario = new Formulario();
 
         while(true){
             System.out.print("""
@@ -30,15 +31,31 @@ public class Main {
 
             switch(op){
                 case 1 -> {
-                        Formulario formulario = FormularioUI.capturarDados(scanner); //formulario vai receber o objeto que o método capturarDados retornou.
+                        formulario = FormularioUI.capturarDados(scanner); //formulario vai receber o objeto que o método capturarDados retornou.
                         formularioDao.salvar(formulario);
                         System.out.println("Formulário salvo com ID: " + formulario.getId());
                 }
                 case 2 -> {
-                    // atualizar
+                    System.out.println("*** Digite os seus dados a serem atualizados ***");
+                    System.out.print("Nome: ");
+                    String nome = scanner.nextLine();
+                    formulario.setNome(nome);
+
+                    System.out.println("Telefone: ");
+                    String telefone = scanner.nextLine();
+                    formulario.setTelefone(telefone);
+
+                    System.out.println("Email: ");
+                    String email = scanner.nextLine();
+
+                    System.out.println("Mensagem: ");
+                    String mensagem = scanner.nextLine();
+                    formulario.setMensagem(mensagem);
+                    formularioDao.atualizar(formulario);
+                    System.out.println("-----------------------------------------");
                 }
                 case 3 -> {
-                    // deletar
+                    formularioDao.deletar(formulario);
                 }
                 case 4 -> {
                    List<Formulario> lista = formularioDao.listarTodos();
