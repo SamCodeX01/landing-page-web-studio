@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.TipoDeServico;
 import org.example.dao.FormularioDao;
 import org.example.model.Formulario;
 
@@ -26,6 +27,26 @@ public class FormularioService {
 
     // Validações de regra de negócio
     private void validarFormulario(Formulario formulario) {
+        // Validação do NOME
+        String nome = formulario.getNome(), email, telefone, mensagem = "";
+        TipoDeServico tipoDeServico;
+
+        if(nome == null || nome.trim().isEmpty()){ // se null não existe, trim() - Remove espaços extras,
+            System.out.println("Digite um nome válido!");
+        }
+        if(nome.length() < 3){}
+        if(nome.length() > 100){}
+        if (nome.matches(".*\\d.*")){
+            throw new IllegalArgumentException("Nome não pode conter números!");
+        }
+        // Validação do NOME
+        // Validação do EMAIL
+        // Validação do TELEFONE
+        // Validação do MENSAGEM
+        if(mensagem.trim().isEmpty()){}
+        if(mensagem.length() < 20){}
+        if(mensagem.length() > 200){}
+
 
 
         // Validação de email único (exemplo)
