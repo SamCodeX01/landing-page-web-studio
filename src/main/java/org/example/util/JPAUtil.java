@@ -4,6 +4,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
+//util em projetos JPA puro serve para classes auxiliares e utilitárias que não se encaixam em outras camadas (como model, dao, service, controller).
+//util é a gaveta de ferramentas do seu projeto JPA. Tudo que é genérico(métodos genéricos como validação de cpf, de email etc), reutilizável e não seja regra de negócios.
 public class JPAUtil {
     // Cria fábrica de conexões JPA para o banco "landingPage" (gerencia as entidades)
     private static final EntityManagerFactory FACTORY = Persistence.createEntityManagerFactory("landingPage");

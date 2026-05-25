@@ -7,7 +7,8 @@ import org.example.util.JPAUtil;
 
 import java.lang.reflect.Type;
 import java.util.List;
-
+//DAO = Padrão de projeto para encapsular lógica de acesso a dados
+//Função: Isolar operações CRUD (find, save, delete) usando JPA
 public class FormularioDao {
 
     public void salvar(Formulario formulario){
